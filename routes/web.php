@@ -35,3 +35,4 @@ Route::get('/all-product-list', [ProductController::class, 'allProduct']);
 Route::post('/create-product', [ProductController::class, 'createProduct']);
 Route::post('/delete-product', [ProductController::class, 'deleteProduct']);
 Route::post('/product-by-id', [ProductController::class, 'productById']);
+Route::post('/update-product', [ProductController::class, 'updateProduct']);

@@ -11,6 +11,7 @@
         <thead class="table-light text-center">
             <tr>
                 <th scope="col">Serial</th>
+                <th scope="col">Category Id</th>
                 <th scope="col">Product Name</th>
                 <th scope="col">Product Image</th>
                 <th scope="col">Action</th>
@@ -36,8 +37,10 @@
         response.data.forEach(function (item,index) {
             let row=`<tr>
                         <td>${index+1}</td>
+                        <td>${item['category_id']}</td>
                         <td>${item['product_name']}</td>
-                        <td><img width="100" src="{{asset('assets/images')}}/${item['product_img']}}"></td>
+                       
+                        <td><img class="w-25 h-auto" alt="img" src="${item['product_image']}"></td>
                         <td>
                             <button data-id="${item['id']}" class="btn editBtn btn-sm btn-outline-success">Edit</button>
                             <button data-id="${item['id']}" class="btn deleteBtn btn-sm btn-outline-danger">Delete</button>
@@ -48,7 +51,7 @@
 
         $('.editBtn').on('click', async function () {
                let id= $(this).data('id');
-               await fillUpForm(id)
+               await fillUpUpdateForm(id)
                $("#update-modal").modal('show');
         })
 
